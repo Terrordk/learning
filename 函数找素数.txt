@@ -25,6 +25,7 @@ int main()        //用函数的方式找出100-200之间的素数
 		{
 			printf("%d\n", i);
 		}
-		return 0;
+
 	}
+	return 0;
 }
