@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int main()                        
+{
+	int a = 0;
+	int b = 3;
+	int max = 0;
+	/*if (a > b)
+	{
+		max = a;
+	}
+	else
+		max = b;*/
+
+	max = a > b ? a : b;               // 表达式1为真，返回a，否则返回b，三目操作符也叫作条件操作符
+
+	printf("%d\n", max);
+	return 0;
+}
