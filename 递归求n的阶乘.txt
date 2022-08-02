@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+//求n的阶乘
+
+int fac(int m)
+{
+	if (m > 1)
+	{
+		return (m * fac(m - 1));
+	}
+	return 1;
+}
+
+int main()
+{
+	int n = 0;
+	scanf("%d", &n);
+	printf("%d\n", fac(n));
+
+	return 0;
+}
