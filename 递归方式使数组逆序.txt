@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+
+int my_strlen(char* str)   //只传递数组的第一个元素的地址，因为数组元素都是在一起的，所以一直往后找\0就可以了
+{
+	int count = 0;
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
+
+void reverse_string(char* str)
+{
+	char tmp = *str;   //指向数组第一个元素a
+	int len = my_strlen(str);
+	*str = *(str + len - 1);   //让第一个元素a变成f
+	*(str + len - 1) = '\0';   //让原本是f的位置变成\0                
+	if (my_strlen(str+1)>=2)
+	{
+		reverse_string(str + 1);               这个时候第一次进入递归的话数组是    f   bcde\0\0   相当于只有bcde，第二次是 fe   cd\0\0\0 相当于只有cd,最后cd互换dc，最后转换成功fedcba
+	}
+	*(str + len - 1) = tmp;   //让原本是f的位置放回a，完成a和f的变换
+}
+
+int main()
+{
+	char arr[] = "abcdef";
+	reverse_string(arr);
+	printf("%s\n", arr);
+
+	return 0;
+}
